@@ -1,0 +1,108 @@
+value
+09
+1.00.00001,"Tues, 03 July 2012 00:00:00 GMT"
+1.00.00001,"Tues, 03 July 2012 00:00:00 GMT",Property
+1.00.00001,"Tues, 03 July 2012 00:00:00 GMT",Agent
+1.00.00001,"Tues, 03 July 2012 00:00:00 GMT",Office
+1.00.00001,"Wed, 6 Nov 2013 00:00:00 GMT",Destination
+1.00.00001,2012-07-03T00:00:00Z,Property
+1.00.00001,2012-07-03T00:00:00Z,Agent
+1.00.00001,2012-07-03T00:00:00Z,Office
+1.00.00001,2012-07-03T00:00:00Z,Property,Property
+1.00.00001,2012-07-03T00:00:00Z,Agent,Agent
+1.00.00001,2012-07-03T00:00:00Z,Office,Office
+1.00.00001,2013-11-06T00:00:00Z,Destination,Destination
+1.00.00001,2012-07-03T00:00:00Z,Property,Property
+1.00.00001,2012-07-03T00:00:00Z,Agent,Agent
+1.00.00001,2012-07-03T00:00:00Z,Office,Office
+1.00.00001,"Mon, 18 Aug 2003 17:00:00 GMT",Property
+1.00.00001,"Mon, 18 Aug 2003 17:00:00 GMT",Agent
+1.00.00001,"Mon, 18 Aug 2003 17:00:00 GMT",Office
+AccessType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Amenities,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+AmenitiesNearby,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Amperage,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Appliances,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ArchitecturalStyle,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+BasementDevelopment,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+BasementFeatures,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+BasementType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Boards,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+BuildingType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+BusinessSubType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+BusinessType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+CeilingType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ClearCeilingHeight,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+CommunicationType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+CommunityFeatures,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ConstructionMaterial,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ConstructionStatus,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ConstructionStyleAttachment,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ConstructionStyleOther,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ConstructionStyleSplitLevel,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+CoolingType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Crop,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+CurrentUse,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+DocumentType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Easement,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+EquipmentType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ExteriorFinish,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FarmType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Features,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FenceType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FireplaceFuel,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FireplaceType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FireProtection,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Fixture,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FlooringType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FoundationType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+FrontsOn,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+HeatingFuel,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Heating Type,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+IrrigationType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+LandDispositionType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+LandscapeFeatures,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+LeaseType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+LiveStockType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+LoadingType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Machinery,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+MaintenanceFeeType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+MeasureUnit,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+OwnershipType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ParkingType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+PaymentUnit,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+PoolFeatures,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+PoolType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+PropertyType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+RentalEquipmentType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+RightType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+RoadType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+RoofMaterial,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+RoofStyle,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+RoomLevel,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+RoomType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Sewer,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+StoreFront,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+SignType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+SoilEvaluationType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+SoilType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+StorageType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+StructureType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+SurfaceWater,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+TopographyType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+TransactionType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+UffiCodes,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+UtilityPower,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+UtilityType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+UtilityWater,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ViewType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+WaterFrontType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+ZoningType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Property
+Boards,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Agent
+IndividualDesignations,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Agent
+Languages,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Agent
+Specialties,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Agent
+Boards,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Office
+Franchisor,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Office
+OrganizationType,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Office
+OrganizationDesignations,1.00.00001,"Fri, 29 Jun 2012 00:00:00 GMT",Office
