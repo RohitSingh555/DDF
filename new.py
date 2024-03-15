@@ -8,10 +8,6 @@ from http.cookiejar import CookieJar
 from datetime import datetime, timedelta
 import time
 import json
-import random
-
-def generate_random_id():
-    return random.randint(1, 1000)  # Adjust the range as needed
 
 cookieJar = CookieJar() 
 username = "iE6svatdsq6SjsaqxM7ESGz1"
@@ -35,35 +31,20 @@ def lambda_handler(event, context):
         "statusCode": 200
     }
 def parse_tab_separated_data(data):
+    # Split the tab-separated data into individual fields
     fields = data.split("\t")
-    fields=fields[1:-1]
     return fields
 
-def create_column_compact(cursor, column_name, data_type):
-    try:
-        if not column_name:
-            print("Empty column name. Skipping.")
-            return
-
-        if column_name.lower() in ["publicremarks", "communityfeatures", "roomdimensions1","moreinformationlink","roomlengthwidthunits10","roomlengthwidthunits1","roomlengthwidthunits11"]:
-            data_type = "TEXT"
-        elif column_name.lower().startswith("roomlength") or column_name.lower().startswith("roomwidth") or column_name.lower().startswith("roomlevel"):
-            data_type = "INT"
-        else:
-            data_type = "VARCHAR(50)"
-        # Create the table if it doesn't exist
-        cursor.execute(f"CREATE TABLE IF NOT EXISTS compact_property_listings ({column_name} {data_type})")
-        
-        # Add the column to the table
-        cursor.execute(f"ALTER TABLE compact_property_listings ADD COLUMN {column_name} {data_type}")
-        print(f"Column '{column_name}' added to the table with data type {data_type}.")
-        
-    except mysql.connector.Error as err:
-        if err.errno == 1060: 
-            print(f"Column '{column_name}' already exists.")
-        else:
-            print(f"Error adding column '{column_name}': {err}")
-
+def add_columns_to_table(columns, cursor):
+    for column in columns:
+        try:
+            cursor.execute(f"ALTER TABLE new_property_listings ADD COLUMN `{column}` VARCHAR(255)")
+            print(f"Column '{column}' added to the table.")
+        except mysql.connector.Error as err:
+            if err.errno == 1060:  # Error code for duplicate column name
+                print(f"Column '{column}' already exists.")
+            else:
+                print(f"Error adding column '{column}': {err}")
 
 def Compact_SearchTransaction():
     RetsUrl = "https://data.crea.ca"
@@ -78,7 +59,7 @@ def Compact_SearchTransaction():
 
     session_id = auth_response.cookies.get('X-SESSIONID')
     asp_session_id = auth_response.cookies.get('ASP.NET_SessionId')
-    request_arguments = f"?Format=COMPACT-Decoded&SearchType={SearchType}&Class={Class}&QueryType={QueryType}&Query={Query}&Count=1&Limit=100&Offset=1&Culture=en-CA"
+    request_arguments = f"?Format=COMPACT&SearchType={SearchType}&Class={Class}&QueryType={QueryType}&Query={Query}&Count=1&Limit=100&Offset=1&Culture=en-CA"
     search_service = RetsUrl + "/Search.svc/Search" + request_arguments
     print("URL:", search_service)
     
@@ -97,7 +78,6 @@ def Compact_SearchTransaction():
             },
             cookies=cookieJar
         )
-        
         if response.status_code == 200 and Query != "(ID=*)":
             with open('Compactdata.xml', 'wb') as xmlfile:
                 xmlfile.write(response.content)
@@ -106,55 +86,44 @@ def Compact_SearchTransaction():
 
             tree = ET.parse('Compactdata.xml')
             root = tree.getroot()
-
-            columns_data = root.find('.//COLUMNS').text
-            columns = columns_data.split('\t')
-            
-            num_columns_xml = len(columns)
-
-            # print("Number of columns in XML:", num_columns_xml)
-
             db = mysql.connector.connect(
                 host='localhost',
                 user='root',
                 password='root',
-                database='ddf' 
+                database='ddf'  # Change to your database name
             )
             cursor = db.cursor()
 
-            # cursor.execute("SHOW COLUMNS FROM compact_property_listings")
-            # num_columns_db = len(cursor.fetchall())
+            # Extract column names from the XML
+            columns_data = root.find('.//COLUMNS').text.strip()
+            columns = columns_data.split("\t")
+            print("Columns:", columns)
 
-            # print("Number of columns in database table:", num_columns_db)
+            # Add columns to the table if they don't exist
+            add_columns_to_table(columns, cursor)
 
             for data_element in root.findall('.//DATA'):
-                data = data_element.text
+                data = data_element.text.strip()
                 if data:
                     fields = parse_tab_separated_data(data)
+                    print("Data Fields:", fields)
 
-                    # print("Number of values in XML:", len(fields))
-                columns_data = root.find('.//COLUMNS').text
-                columns = columns_data.split("\t")
-                columns = columns[1:-1]
-                for column in columns:
-                    print(column)
-                    create_column_compact(cursor, column, "VARCHAR(100)")
-                # print("Columns:", columns)
-                # print("Fields:", fields)
-                columns_str = ','.join(columns)
-                # placeholders = ', '.join(['%s' if field else 'NULL' for field in fields])
-                placeholders = ',  '.join([f'"{field}"' if field else 'NULL' for field in fields])
-                
-                sql_insert = f"INSERT INTO compact_property_listings ({columns_str}) VALUES ({placeholders})"
-                print(sql_insert)
-                cursor.execute(sql_insert)
+                    if len(fields) == len(columns):
+                        placeholders = ', '.join(['%s'] * len(fields))
+                        sql_insert = f"INSERT INTO new_property_listings ({', '.join(columns)}) VALUES ({placeholders})"
+                        print("SQL Query:", sql_insert)  # Print the SQL query
+                        cursor.execute(sql_insert, fields)
+                    else:
+                        print("Column count doesn't match value count.")
+                        continue
 
-        db.commit()
-        cursor.close()
-        db.close()
-        print("Data inserted successfully.")
+            db.commit()
+            cursor.close()
+            db.close()
+            print("Data inserted successfully.")
     except Exception as ex:
         print("Error:", ex)
+
 
 def update_database_with_xml_data(id):
     SearchType = "Property" 
@@ -223,6 +192,7 @@ def update_database_row(table_element, cursor):
     data = {}
     for element in table_element.iter():
         if get_local_name(element.tag) == 'PropertyDetails':
+            # Extract ID attribute from PropertyDetails element
             data['ID'] = element.get('ID').strip() if element.get('ID') else None
         else:
             data[get_local_name(element.tag)] = element.text.strip() if element.text else None
@@ -502,7 +472,7 @@ Limit = "100"
 Offset = 1 
 Culture = "en-CA" 
 Format = "STANDARD-XML" 
-# SearchTransaction(RetsUrl,str(SearchType), str(Class), str(QueryType),Query, Count=Count, Limit=str(Limit), Offset=Offset, Culture=str(Culture), Format=str(Format))
+SearchTransaction(RetsUrl,str(SearchType), str(Class), str(QueryType),Query, Count=Count, Limit=str(Limit), Offset=Offset, Culture=str(Culture), Format=str(Format))
 Compact_SearchTransaction()
 
 
